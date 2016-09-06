@@ -23,3 +23,10 @@ test('should return incremented count on calc', function(assert) {
   assert.equal(someThing.calc(), 'count: 1');
   assert.equal(someThing.calc(), 'count: 2');
 });
+
+
+test('should set other prop to yes when foo changes', function(assert) {
+  const someThing = this.subject();
+  someThing.set('foo', 'baz');
+  assert.equal(someThing.get('other'), 'yes');
+});

@@ -2,6 +2,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   foo: 'bar',
   count: 0,
+  other: 'no',
 
   testMethod() {
     this.set('foo', 'baz');
@@ -16,5 +17,9 @@ export default Ember.Object.extend({
   computedFoo: Ember.computed('foo', function() {
     const foo = this.get('foo');
     return `computed ${foo}`;
+  }),
+
+  doSomething: Ember.observer('foo', function() {
+    this.set('other', 'yes');
   })
 });
