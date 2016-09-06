@@ -9,3 +9,17 @@ test('should correctly concat foo', function(assert) {
   someThing.set('foo', 'baz');
   assert.equal(someThing.get('computedFoo'), 'computed baz');
 });
+
+
+test('should update foo on testMethod', function(assert) {
+  const someThing = this.subject();
+  someThing.testMethod();
+  assert.equal(someThing.get('foo'), 'baz');
+});
+
+
+test('should return incremented count on calc', function(assert) {
+  const someThing = this.subject();
+  assert.equal(someThing.calc(), 'count: 1');
+  assert.equal(someThing.calc(), 'count: 2');
+});
