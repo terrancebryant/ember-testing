@@ -1,0 +1,8 @@
+{{yield}}
+
+{{input value=searchValue key-up=(action 'handleTyping')}}
+<ul>
+  {{#each results as |result|}}
+    <li class='result'>{{result.name}}</li>
+  {{/each}}
+</ul>
